@@ -7,13 +7,7 @@ import {router as adminRoutes} from './routes/adminRoutes.js'
 import { router as userRoutes } from "./routes/userRoutes.js"
 const app = express()
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://clothing-store-ecru.vercel.app');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    next();
-  });
+app.use(cors({origin: 'https://clothing-store-ecru.vercel.app', credentials: true }))
 app.use(express.json({ limit: '50mb' }))
 app.use(cookieParser())
 
