@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 const adminAPI = createApi({
     reducerPath: 'admin-api-reducer',
     tagTypes: ['data'],
-    baseQuery: fetchBaseQuery({baseUrl:'http://localhost:4000/' ,credentials: 'include'} ),
+    baseQuery: fetchBaseQuery({baseUrl:'https://clothing-store-ecru.vercel.app/' ,credentials: 'include'} ),
     endpoints: builder => ({
         getByCategory: builder.query({
             query:(category)=>({
