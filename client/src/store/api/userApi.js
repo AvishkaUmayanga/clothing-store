@@ -115,11 +115,11 @@ const userApi = createApi({
             query:()=>({
                 url: '/logout',
                 method: 'post'
-            })
+            }),
+            invalidatesTags:(result, err, arg) =>{
+                return [{type:'cartData', id:'userCart'}]
+            },
         }),
-        invalidatesTags:(result, err, arg) =>{
-            return [{type:'cartData', id:'userCart'}]
-        },
     })
 })
 
