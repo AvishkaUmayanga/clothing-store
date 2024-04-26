@@ -21,16 +21,6 @@ const userApi = createApi({
             })
         }),
 
-        logoutUser: builder.mutation({
-            query:()=>({
-                url: '/logout',
-                method: 'post'
-            })
-        }),
-        invalidatesTags:(result, err, arg) =>{
-            return [{type:'cartData', id:'userCart'}]
-        },
-
         getByCategoryUser: builder.query({
             query:(category)=>({
                 url: `/get_byCategoryuser/${category}`,
@@ -119,7 +109,17 @@ const userApi = createApi({
             providesTags:(result, err, arg) =>{
                 return [{type:'orderData', id:'userOrder'}]
             }
-        })
+        }),
+
+        logoutUser: builder.mutation({
+            query:()=>({
+                url: '/logout',
+                method: 'post'
+            })
+        }),
+        invalidatesTags:(result, err, arg) =>{
+            return [{type:'cartData', id:'userCart'}]
+        },
     })
 })
 
