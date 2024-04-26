@@ -32,8 +32,8 @@ function AddBuyButton(prop) {
   return (
     <>
     <Link to={prop.link}>
-      <div className={`flex items-center p-1 text-white bg-pink-600 rounded-full`} onClick={handleClick}>
-        <div className={`p-1 text-pink-600 bg-white border rounded-full`}>
+      <div className={`flex items-center p-1 text-white bg-${prop.color}-600 rounded-full`} onClick={handleClick}>
+        <div className={`p-1 text-${prop.color}-600 bg-white border rounded-full`}>
           {Icon && <Icon />}
         </div>
         <div className='w-full text-center max-md:text-sm'>
