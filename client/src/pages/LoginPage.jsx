@@ -19,7 +19,7 @@ function LoginPage() {
       email: e.target.email.value,
       password: e.target.password.value
     }
-    console.log(loginData)
+    
     try{
       const response = await loginUser(loginData)
       console.log(response)
