@@ -6,14 +6,9 @@ import { useGetOrderDetailsQuery } from '../../store/api/userApi';
 
 function MyOrders() {
   const {data, isSuccess, isLoading, isError } = useGetOrderDetailsQuery()
-  console.log(data)
 
-    const orderData = data?.orderDetails?.orders
-  
+  const orderData = data?.orderDetails?.orders
 
-  
-
-  
   if(isLoading){
     return <div className='flex items-center justify-center w-full h-[100vh]'>Loading...</div>
   }
@@ -24,7 +19,7 @@ function MyOrders() {
       <div className='flex flex-col justify-between min-h-[92vh]  gap-10'>
         <div className='relative flex flex-col items-center gap-8 px-10 py-10'>
           <h2 className='text-3xl font-semibold'>My Orders</h2>
-          <div className='p-8 border rounded-md max-sm:p-5 w-[500px]'>
+          <div className='p-8 border rounded-md max-sm:p-5 w-[500px] max-mdxl:w-[360px]'>
           {isSuccess && (
             <table className='w-full max-md:text-sm'>
               <tr className='border-b '>
