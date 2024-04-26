@@ -39,7 +39,7 @@ function NavBar() {
         dispatch(userLogOut());
         document.cookie = 'token=; path=/;';
         navigate('/login');
-      });
+      },2000);
     } catch (err) {
       console.error('Logout failed:', err);
     }
