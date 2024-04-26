@@ -27,6 +27,9 @@ const userApi = createApi({
                 method: 'post'
             })
         }),
+        invalidatesTags:(result, err, arg) =>{
+            return [{type:'cartData', id:'userCart'}]
+        },
 
         getByCategoryUser: builder.query({
             query:(category)=>({

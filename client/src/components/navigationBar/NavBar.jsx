@@ -35,11 +35,10 @@ function NavBar() {
     try {
       const response = await logoutUser();
       setMessage(response.data.message);
-      setTimeout(() => {
-        dispatch(userLogOut());
-        document.cookie = 'token=; path=/;';
-        navigate('/login');
-      },2000);
+      dispatch(userLogOut());
+      document.cookie = 'token=; path=/;';
+      navigate('/login');
+      
     } catch (err) {
       console.error('Logout failed:', err);
     }
