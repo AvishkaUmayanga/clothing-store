@@ -8,8 +8,10 @@ import { useSelector } from 'react-redux';
 import { checkoutSliceSelector } from '../../store/slices/checkoutSlice';
 import { useGetUserAddressQuery, usePlaceOrderMutation } from '../../store/api/userApi';
 import UpdateAddress from '../update address/UpdateAddress';
+import MessageBox from '../message box/MessageBox';
 
 function CheckOut() {
+  const [message, setMessage] = useState(null)
   const [showChangeAddress, setShowChangeAddress] = useState(false)
   const checkoutItems = useSelector(checkoutSliceSelector)
   const itemsArray = checkoutItems.items[0]
@@ -17,6 +19,18 @@ function CheckOut() {
   
   const handleChangeAddress = () =>{
     setShowChangeAddress(!showChangeAddress)
+  }
+  
+  if(isError){
+    return <>
+    <NavBar /> 
+    <div className=' h-[92vh] flex flex-col justify-between '>
+      <div className='flex items-center justify-center w-full h-full text-2xl'>
+        {error.data.message}
+      </div>
+      <Footer />
+      </div>
+    </>
   }
   
   return (
@@ -48,6 +62,7 @@ function CheckOut() {
       <Footer />
       </div>
       { showChangeAddress && <UpdateAddress closeForm={handleChangeAddress}/>}
+      { message !== null && <MessageBox messageTxt={message} onClick={()=>setMessage(null)} />}
     </>
   )
 }
