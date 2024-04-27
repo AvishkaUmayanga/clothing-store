@@ -15,7 +15,7 @@ function CheckOut() {
   const [showChangeAddress, setShowChangeAddress] = useState(false)
   const checkoutItems = useSelector(checkoutSliceSelector)
   const itemsArray = checkoutItems.items[0]
-  const {data:addressData, isSuccess} = useGetUserAddressQuery()
+  const {data:addressData, isSuccess, isError, error} = useGetUserAddressQuery()
   
   const handleChangeAddress = () =>{
     setShowChangeAddress(!showChangeAddress)
