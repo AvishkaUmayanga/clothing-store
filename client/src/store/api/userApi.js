@@ -117,7 +117,7 @@ const userApi = createApi({
                 method: 'post'
             }),
             invalidatesTags:(result, err, arg) =>{
-                return [{type:'cartData', id:'userCart'}]
+                return [{type:'cartData', id:'userCart'}, {type:'cartData', id:'userAddress'}]
             },
         }),
     })
